@@ -1,0 +1,525 @@
+import requests,os,time
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import unpad
+from Crypto.Util.Padding import pad
+import binascii,base64,codecs,json
+def logo(text):
+    k=os.system('figlet -t -f term '+text+' | lolcat')
+    return k
+def retrypgrean(genrrNName,genrrIId):
+    print('Retrying')
+    pgrean(genrrNName,genrrIId)
+def retryhome(useridid,msisddr):
+    print('Retrying')
+    homei(useridid,msisddr)
+def retry2homei(useridid,msisddr):
+    print('Retrying')
+    homei(useridid,msisddr)
+def retrygetch(mdntype,chlslug,myname):
+    print('Retrying')
+    gtchannlUrli(mdntype,chlslug,myname)
+def retrysinglevod(slugid):
+    print('Retrying')
+    singlevod(slugid)
+def retrysinglechannel(slugich):
+    print('Retrying')
+    singlechannel0i(slugich)
+def retrysingleprogram(slugid):
+    print('Retrying')
+    singleprogram(slugid)
+def retrysinglevod(slugid):
+    print('Retrying')
+    singlevod(slugid)
+global token1
+def token0():
+    headers = {'Content-Type': 'application/x-www-form-urlencoded','Content-Length': '77','Host': 'jazztv.pk','Connection': 'Keep-Alive','Accept-Encoding': 'gzip','User-Agent': 'okhttp/3.10.0'}
+    data = {'password':'hy9h3n()c6ypt@CIjt','email':'shoaib.ahsan@convexinteractivee.com'}
+    response = requests.post('https://jazztv.pk/alpha/api_gateway/index.php/auth/login', headers=headers, data=data)
+    kj=json.loads(response.text)
+    tokenp=kj["token"]
+    tokent=kj["token_type"]
+    token0=tokent+' '+tokenp
+    return token0
+token1=str(token0())
+def decrypter(hex_string):
+    z = (base64.b64encode(bytes.fromhex(hex_string)).decode())
+    try:
+        iv = base64.b64decode('ZnBtamxyYmhwbGpvZW5ubQ==')
+        ciphertext = base64.b64decode(z)
+        key = base64.b64decode('cHBsZmU3NzV4dnllOGo4MWVscG85YjE0ZDljMDkwOTg=')
+        cipher = AES.new(key, AES.MODE_CBC, iv)
+        plaintext = unpad(cipher.decrypt(ciphertext), AES.block_size)
+        cip1=str(plaintext)
+        cip2=cip1[2:]
+        cip3=cip2[:-1]
+        return cip3
+    except (ValueError, KeyError):
+        return 'ERROR!'
+def dwnlder2(url1,url2,namet):
+    b=url1
+    nameti=namet.replace(' ','')
+    if '/hls/' in b:
+        nmn2 = b[0:b.find('/hls/')]
+    elif '/hls2/' in b:
+        nmn2 = b[0:b.find('/hls2/')]
+    elif '/jazzauth' in b:
+        nmn2 = b[0:b.find('/jazzauth')]
+    ppy = nmn2.replace('https://','')
+    headers = {'User-Agent': 'MjunoonPlayer/3.0.8 (Linux;Android 12)','Host':ppy,'Connection': 'Keep-Alive','Accept-Encoding': 'gzip'}
+    response=requests.get(url1,headers=headers)
+    khichly0=response.text
+    replic=str(khichly0).split('\n')
+    print(replic)
+    nameti=str(namet).replace(' ','')
+    nhuyt=int(len(replic))
+    newl=[]
+    for i in range(0,nhuyt):
+        if '#' in replic[i]:
+            y='I'
+        elif '"' in replic[i]:
+            y='I'
+        else:
+            newi=replic[i]
+            newl.append(newi)
+    newp=newl
+    nnhuyt=int(len(newp))
+    for i in range(0,nnhuyt):
+        if '180p' in newp[i]:
+            print(' '+str(i+1)+' - 180p')
+        elif '360p' in newp[i]:
+            print(' '+str(i+1)+' - 360p')
+        elif '720p' in newp[i]:
+            print(' '+str(i+1)+' - 720p')
+        elif '1080p' in newp[i]:
+            print(' '+str(i+1)+' - 1080p')
+        elif '18.mp4' in newp[i]:
+            print(' '+str(i+1)+' - 1080p')
+        elif '82H' in newp[i]:
+            print(' '+str(i+1)+' - HD')
+        elif '82M' in newp[i]:
+            print(' '+str(i+1)+' - MKV')
+    mychoe=input('Choose Video Resolution : ')
+    vdresl0=int(mychoe)-1
+    vdresl=newp[vdresl0]
+    if '180p' in vdresl:
+        vdrss='180p'
+        vdmn="180p"
+    elif '360p' in vdresl:
+        vdrss='360p'
+        vdmn="360p"
+    elif '720p' in vdresl:
+        vdrss='720p'
+        vdmn="720p"
+    elif '1080p' in vdresl:
+        vdrss='1080p'
+        vdmn="1080p"
+    elif '18.mp4' in vdresl:
+        vdrss='1080p'
+        vdmn="18"
+    elif '82H' in vdresl:
+        vdrss='HD'
+    elif '82M' in vdresl:
+        vdrss='MKV'
+    print(' You Chosen : '+vdrss)
+    ctinurl=url1.split('playlist.m3u8')
+    myfpurl=str(ctinurl[0])
+    myffurll=myfpurl+vdresl
+    b=myffurll.replace('.com/','.com:8087')
+    headersst = {'User-Agent': 'MjunoonPlayer/3.0.8 (Linux;Android 12)','Host':ppy,'Connection': 'Keep-Alive','Accept-Encoding': 'gzip'}
+    responseb=requests.get(b,headers=headersst)
+    khichly0b=responseb.text
+    replicb=str(khichly0b).split('\n')
+    nhuytb=int(len(replicb))
+    newlb=[]
+    for i in range(0,nhuytb):
+        if '#' in replicb[i]:
+            y='I'
+        elif '"' in replicb[i]:
+            y='I'
+        elif ''==replicb[i]:
+            y='I'
+        elif " "==replicb[i]:
+            y='I'
+        else:
+            newib=replicb[i]
+            newlb.append(newib)
+    newpb=newlb
+    juiyi=newpb[1]
+    juiyi2=newpb[2]
+    frnurl=b.split('chunks.m3u8')
+    mynurl=str(frnurl[0])
+    mycfurl=mynurl+str(juiyi)
+    mycfurl2=mynurl+str(juiyi2)
+    getsp=mycfurl[0:mycfurl.find('.ts')]
+    getsp2=mycfurl2[0:mycfurl2.find('.ts')]
+    afgturl=getsp[getsp.find('/l_')+len('/l_'):]
+    afgturl2=getsp2[getsp2.find('/l_')+len('/l_'):]
+    iamspl=afgturl.split('_')
+    iamspl2=afgturl2.split('_')
+    fprtgg=iamspl[0]
+    fprtgg2=iamspl2[0]
+    secprtgg=iamspl[1]
+    secprtgg2=iamspl2[1]
+    pfofurl=mycfurl[0:mycfurl.find('/l_')]+'/l_'
+    psofurl=mycfurl[mycfurl.find('.ts')+len('.ts'):]
+    isugthis=int(fprtgg2)-int(fprtgg)
+    import curses
+    stdscr = curses.initscr()
+    # tweak terminal settings
+    curses.noecho()
+    curses.cbreak()
+    stdscr.keypad(True)
+    curses.curs_set(0)
+    # write something on the screen
+    for i in range(0,5000):
+        if str(i)=='0':
+            pop=str(fprtgg)
+        else:
+            pop=str(int(fprtgg)+int(isugthis*i))
+        kop=str(i+int(secprtgg))
+        curltt='nohup curl -o '+str(i)+' -X GET -H "User-Agent:MjunoonPlayer/3.0.8 (Linux;Android 12)" -H "Accept-Encoding:identity" -H "Host:'+ppy+'" -H "Connection:Keep-Alive" "'+pfofurl+pop+'_'+kop+'.ts'+psofurl+'" > temp.txt &'
+        os.system(curltt)
+        time.sleep(10+3)
+    os.system('python compose 5000 >'+nameti)
+    stdscr.clear()
+    stdscr.addstr(5, 10, "Done!")
+    stdscr.refresh()
+    # wait for 3 seconds
+    time.sleep(3)
+    # clear the screen
+    stdscr.clear()
+    # reverse terminal settings
+    curses.nocbreak()
+    stdscr.keypad(False)
+    curses.echo()
+    # close the application
+    curses.endwin()
+    homei(useryid,msisdder)
+def dwnlder(url1,url2,namet):
+    b=url1
+    if '/hls/' in b:
+        nmn = b[0:b.find('/hls/')]
+    elif '/hls2/' in b:
+        nmn = b[0:b.find('/hls2/')]
+    ppy = nmn.replace('https://','')
+    headers = {'User-Agent': 'MjunoonPlayer/3.0.8 (Linux;Android 12)','Host':ppy,'Connection': 'Keep-Alive','Accept-Encoding': 'gzip'}
+    response=requests.get(url1,headers=headers)
+    khichly0=response.text
+    replic=str(khichly0).split('\n')
+    nameti=str(namet).replace(' ','')
+    nhuyt=int(len(replic))
+    newl=[]
+    for i in range(0,nhuyt):
+        if '#' in replic[i]:
+            y='I'
+        else:
+            newi=replic[i]
+            newl.append(newi)
+    newp=newl
+    nnhuyt=int(len(newp))
+    for i in range(0,nnhuyt):
+        if '180p' in newp[i]:
+            print(' '+str(i+1)+' - 180p')
+        elif '360p' in newp[i]:
+            print(' '+str(i+1)+' - 360p')
+        elif '720p' in newp[i]:
+            print(' '+str(i+1)+' - 720p')
+        elif '1080p' in newp[i]:
+            print(' '+str(i+1)+' - 1080p')
+        elif '18.mp4' in newp[i]:
+            print(' '+str(i+1)+' - 1080p')
+    mychoe=input('Choose Video Resolution : ')
+    vdresl0=int(mychoe)-1
+    vdresl=newp[vdresl0]
+    if '180p' in vdresl:
+        vdrss='180p'
+        vdmn="180p"
+    elif '360p' in vdresl:
+        vdrss='360p'
+        vdmn="360p"
+    elif '720p' in vdresl:
+        vdrss='720p'
+        vdmn="720p"
+    elif '1080p' in vdresl:
+        vdrss='1080p'
+        vdmn="1080p"
+    elif '18.mp4' in vdresl:
+        vdrss='1080p'
+        vdmn="18"
+    print(' You Chosen : '+vdrss)
+    nvdresl0=vdresl.replace('.mp4_chunk.m3u8','.mp4-n_1_0_0.ts')
+    ctinurl=url1.split('playlist.m3u8')
+    myfpurl=str(ctinurl[0])
+    myffurll=myfpurl+nvdresl0
+    b=myffurll.replace('.com/','.com:8087')
+    d = '_0_0'+b[b.find('_0_0')+len('_0_0'):]
+    f = b[0:b.find('.smil/')]+'.smil/'+vdmn+'.mp4-n_'
+    import curses
+    stdscr = curses.initscr()
+    # tweak terminal settings
+    curses.noecho()
+    curses.cbreak()
+    stdscr.keypad(True)
+    curses.curs_set(0)
+    # write something on the screen
+    for i in range(0,5000):
+        curltt='nohup curl -o '+str(i)+' -X GET -H "User-Agent:MjunoonPlayer/3.0.8 (Linux;Android 12)" -H "Accept-Encoding:identity" -H "Host:'+ppy+'" -H "Connection:Keep-Alive" "'+f+str(i)+d+'" > temp.txt &'
+        os.system(curltt)
+        time.sleep(5)
+        if i>=5:
+            kuy = open(str(i-5),'r',encoding='utf8', errors='ignore').read()
+        else:
+            kuy='I am Scared'
+        if "Internal" in kuy:
+            os.system('chmod +x compose')
+            pack=str(i)
+            os.system('python compose '+pack+' >'+nameti)
+            stdscr.clear()
+            stdscr.addstr(5, 10, "Done!")
+            stdscr.refresh()
+            # wait for 3 seconds
+            time.sleep(3)
+            # clear the screen
+            stdscr.clear()
+            # reverse terminal settings
+            curses.nocbreak()
+            stdscr.keypad(False)
+            curses.echo()
+            # close the application
+            curses.endwin()
+            homei(useryid,msisdder)
+        elif 'ound' in kuy:
+            os.system('chmod +x compose')
+            pack=str(i)
+            os.system('python compose '+pack+' >'+nameti)
+            stdscr.clear()
+            stdscr.addstr(5, 10, "Done!")
+            stdscr.refresh()
+            # wait for 3 seconds
+            time.sleep(3)
+            # clear the screen
+            stdscr.clear()
+            # reverse terminal settings
+            curses.nocbreak()
+            stdscr.keypad(False)
+            curses.echo()
+            # close the application
+            curses.endwin()
+            homei(useryid,msisdder)
+        else:
+            print("Go")
+def pgrean(genrrNName,genrrIId):
+    daita = {'user_id': useryid,'genre_name': genrrNName,'genre_id': genrrIId}
+    klengh0i0=str(len(str(daita).replace('{','').replace('}','').replace("'","")))
+    heaiders = {'Authorization':token1,'Content-Type': 'application/x-www-form-urlencoded','Content-Length': klengh0i0,'Host': 'jazztv.pk','Connection': 'Keep-Alive','Accept-Encoding': 'gzip','User-Agent': 'okhttp/3.10.0'}
+    respoinse = requests.post('https://jazztv.pk/alpha/api_gateway/index.php/media/genre-programs-carousal',headers=heaiders,data=daita)
+    try:
+        kjintr=json.loads(respoinse.text)
+    except (KeyError,ValueError):
+        retrypgrean(genrrNName,genrrIId)
+    kinter=kjintr['eData']
+    kintera=decrypter(kinter)
+    mysinter=json.loads(str(kintera.replace('\\u00a',' ').replace('\\/','/').replace('\\u',' ').replace("\\'","'").replace("\\ "," ").replace("\\"," ")))
+    gotdata=mysinter['data']
+    chnmme=gotdata['ChannelName']
+    print(chnmme)
+    pgrdata=gotdata['programData']
+    kyuityuiug=int(len(pgrdata))
+    for i in range(0,kyuityuiug):
+        kapriiooo=pgrdata[i]
+        chnallmeee=kapriiooo['name']
+        print(' '+str(i+1)+' - '+chnallmeee)
+    kutuyp0=input('Choose an option : ')
+    yutuyuip=int(kutuyp0)-1
+    khuiyytpoi=pgrdata[yutuyuip]
+    chllnameee=khuiyytpoi['name']
+    mdntypeiu=khuiyytpoi['type']
+    mdndlug=khuiyytpoi['slug']
+    if mdntypeiu=='channel':
+        singlechannel0i(mdndlug)
+    elif mdntypeiu=='program':
+        singleprogram(mdndlug)
+    elif mdntypeiu=='movie':
+        singlevod(mdndlug)
+    elif mdntypeiu=='null':
+        singlevod(mdndlug)
+    elif mdntypeiu=='episode':
+        singlevod(mdndlug)
+    else:
+        logo("Unknown Type : "+mdntypeiu)
+def gtchannlUrli(mdntype,chlslug,myname):
+    datau = {'device_id':deviceidi0,'user_id':useryid,'ip': '','mobile':msisdder,'package_id': '0','type':mdntype,'slug':chlslug,'phone_details':devicemom+' (12)- App-Version(30102)'}
+    klengh=str(len(str(datau).replace('{','').replace('}','').replace("'","")))
+    headersu = {'Authorization': token1,'Content-Type': 'application/x-www-form-urlencoded','Content-Length':klengh,'Host': 'jazztv.pk','Connection': 'Keep-Alive','Accept-Encoding': 'gzip','User-Agent': 'okhttp/3.10.0'}
+    responseu = requests.post('https://jazztv.pk/alpha/api_gateway/index.php/media/get-channel-url', headers=headersu, data=datau)
+    try:
+        goturu=json.loads(responseu.text)['eData']
+    except (KeyError,ValueError):
+        retrygetch(mdntype,chlslug,myname)
+    decryutt=decrypter(goturu)
+    finealu=json.loads(decryutt.replace('\\/','/').replace('\\',''))
+    finealu2=finealu['data']
+    streammurlm=finealu2['ChannelStreamingUrls']
+    urlstream2=finealu2['BackupLiveStreamUrl']
+    logo(" 1 - Watch Now")
+    logo(" 2 - Download")
+    kuiyiyi=input("Choose an option : ")
+    if kuiyiyi =="1":
+        logo(streammurlm)
+        os.system('xdg-open "'+streammurlm+'"')
+        homei(useryid,msisdder)
+    elif kuiyiyi=="2":
+        if mdntype=='channel':
+            dwnlder2(streammurlm,urlstream2,myname)
+        else:
+            dwnlder(streammurlm,urlstream2,myname)
+def singlevod(slugid):
+    data = {'device_id':deviceidi0,'user_id':useryid,'package_id':'','slug':slugid}
+    klengh0=str(len(str(data).replace('{','').replace('}','').replace("'","")))
+    headers = {'Authorization': token1,'Content-Type': 'application/x-www-form-urlencoded','Content-Length':klengh0,'Host': 'jazztv.pk','Connection': 'Keep-Alive','Accept-Encoding': 'gzip','User-Agent': 'okhttp/3.10.0'}
+    response = requests.post('https://jazztv.pk/alpha/api_gateway/index.php/media/single-vod', headers=headers, data=data)
+    khuytirii1=json.loads(str(response.text).replace('\n',''))
+    try:
+        tobdectrii1=khuytirii1['eData']
+    except (KeyError,ValueError):
+        retrysinglevod(slugid)
+    dectryrii1=decrypter(tobdectrii1)
+    gotcltxii1=json.loads(str(dectryrii1).replace('\\/','/').replace('\\u',' ').replace('\\',''))
+    detaredii1=gotcltxii1['data']
+    vodname24=detaredii1['vodName']
+    logo('          '+vodname24)
+    voddescription3=detaredii1['programDescription']
+    print('          '+voddescription3)
+    vodslug32=detaredii1['vodslug']
+    gtchannlUrli('vod',vodslug32,vodname24)
+def singlechannel0i(slugich):
+    data = {'device_id':deviceidi0,'user_id':useryid,'package_id':'','slug':slugich}
+    klengh1=str(len(str(data).replace('{','').replace('}','').replace("'","")))
+    headers = {'Authorization': token1,'Content-Type': 'application/x-www-form-urlencoded','Content-Length':klengh1,'Host': 'jazztv.pk','Connection': 'Keep-Alive','Accept-Encoding': 'gzip','User-Agent': 'okhttp/3.10.0'}
+    response = requests.post('https://jazztv.pk/alpha/api_gateway/index.php/media/single-channel', headers=headers, data=data)
+    khuytir0i=json.loads(str(response.text).replace('\n',''))
+    try:
+        tobdectr0i=khuytir0i['eData']
+    except (KeyError,ValueError):
+        retrysinglechannel(slugich)
+    dectryr0i=decrypter(tobdectr0i)
+    gotcltx0i=json.loads(str(dectryr0i).replace('\\/','/').replace('\\u',' ').replace('\\',''))
+    detared0i=gotcltx0i['data']
+    pgnamegt0i=detared0i['ChannelName']
+    logo('          '+pgnamegt0i)
+    pgdetails00i=detared0i['ChannelDescription']
+    print('          '+pgdetails00i)
+    vodSlug0i0i=detared0i['ChannelSlug']
+    gtchannlUrli("channel",vodSlug0i0i,pgnamegt0i)
+def singleprogram(slugid):
+    data = {'device_id':deviceidi0,'user_id':useryid,'slug':slugid}
+    klengh2=str(len(str(data).replace('{','').replace('}','').replace("'","")))
+    headers = {'Authorization': token1,'Content-Type': 'application/x-www-form-urlencoded','Content-Length':klengh2,'Host': 'jazztv.pk','Connection': 'Keep-Alive','Accept-Encoding': 'gzip','User-Agent': 'okhttp/3.10.0'}
+    response = requests.post('https://jazztv.pk/alpha/api_gateway/index.php/media/single-program', headers=headers, data=data)
+    khuytir=json.loads(str(response.text).replace('\n',''))
+    try:
+        tobdectr=khuytir['eData']
+    except (KeyError,ValueError):
+        retrysingleprogram(slugid)
+    dectryr=decrypter(tobdectr)
+    gotcltx=json.loads(str(dectryr).replace('\\/','/').replace('\\u',' ').replace('\\',''))
+    detared=gotcltx['data']
+    pgnamegt=detared['ProgramName']
+    logo('          '+pgnamegt)
+    pgdetails0=detared['ProgramDescription']
+    print('          '+pgdetails0)
+    voda0=detared['vod']
+    vodlen=len(voda0)
+    for i in range(0,int(vodlen)):
+        voda1g=voda0[i]
+        voda1h=voda1g['vodName']
+        print(' '+str(i+1)+' - '+voda1h)
+    newvod0=input('Choose an option : ')
+    vodttuy=int(newvod0)-1
+    vodnm0=voda0[vodttuy]
+    pgrvodname=vodnm0['vodName']
+    logo(' You Selected : '+pgrvodname)
+    vodSlug0i=vodnm0['vodSlug']
+    vodId0i=vodnm0['vodId']
+    singlevod(vodSlug0i)
+def homei(useridid,msisddr):
+    global useryid
+    global msisdder
+    if useridid=='direct':
+        global useryid
+        global msisdder
+        useryid=''
+        msisdder=''
+    else:
+        useryid=useridid
+        msisdder=msisddr
+    data = {'device_id':deviceidi0,'user_id':useryid}
+    lenty=str(len(str(data).replace('{','').replace('}','').replace("'","")))
+    headers = {'Authorization': token1,'Content-Type': 'application/x-www-form-urlencoded','Content-Length':lenty,'Host': 'jazztv.pk','Connection': 'Keep-Alive','Accept-Encoding': 'gzip','User-Agent': 'okhttp/3.10.0'}
+    response = requests.post('https://jazztv.pk/alpha/api_gateway/index.php/media/home-programs-carousal',headers=headers,data=data)
+    hmi=json.loads(response.text)
+    try:
+        knmi=hmi['eData']
+    except (KeyError, ValueError):
+        retry2homei(useryid,msisdder)
+    mnki=decrypter(knmi)
+    hjki=nm =mnki.replace('\\u00a',' ').replace('\\/','/').replace('\\u',' ').replace("\\'","'").replace("\\ "," ").replace("\\"," ")
+    pjki=json.loads(hjki)
+    try:
+        dter=pjki['data']
+    except (KeyError, ValueError):
+        retryhome(useridid,msisddr)
+    print(' 1 - Trending')
+    print(' 2 - Programs')
+    pipok=input('Choose an option : ')
+    if pipok=='1':
+        papri=dter['slider']
+        kyyut=len(papri)
+        for i in range(0,int(kyyut)):
+            kapriiy=papri[i]
+            pgnamee=kapriiy['programName']
+            print(' '+str(i+1)+' - '+pgnamee)
+        kutuy=input('Choose an option : ')
+        yutuy=int(kutuy)-1
+        khiuyyt=papri[yutuy]
+        prognamee=khiuyyt['programName']
+        print(' You Selected : '+prognamee)
+        chlslug=khiuyyt['channelSlug']
+        mdntype=khiuyyt['media_type']
+        nmtype=khiuyyt['type']
+        if mdntype=='channel':
+            singlechannel0i(chlslug)
+        elif mdntype=='program':
+            if nmtype=='program':
+                singleprogram(chlslug)
+            elif nmtype=='vod':
+                singlevod(chlslug)
+        elif mdntype=='movie':
+            singlevod(chlslug)
+        elif mdntype=='null':
+            singlevod(chlslug)
+        else:
+            logo("Unknown Type : "+nmtype+'\n Unknown Media Type : '+mdntype)
+    elif pipok=='2':
+        papri=dter['programs']
+        kyutt=len(papri)
+        for i in range(0,int(kyutt)):
+            kapriiy=papri[i]
+            chnameee=kapriiy['ChannelName']
+            print(' '+str(i+1)+' - '+chnameee)
+        kutuy=input('Choose an option : ')
+        yutuy=int(kutuy)-1
+        khuiyyt=papri[yutuy]
+        chlnameee=khuiyyt['ChannelName']
+        print(' You Selected : '+chlnameee)
+        gnrid=khuiyyt['genreId']
+        pgrean(chlnameee,gnrid)
+    
+    
+        
+        
+    
+    
+deviceidi0='fh35db3yi2ih46hy'
+devicemom='INFINIX Infinix X695'
+homei('38961309','923041721236')
